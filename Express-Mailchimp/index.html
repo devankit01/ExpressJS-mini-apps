@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Newsletter Signup</title>
+    <style>
+      * {
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background-color: rgb(231, 230, 230);
+      }
+      .container {
+        margin: 150px auto;
+        width: 380px;
+        padding: 25px 30px;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+        /* text-align: center; */
+        background-color: rgb(247, 244, 244);
+      }
+      form {
+        margin: 0 auto;
+        display: table;
+      }
+      form input {
+        display: block;
+        padding: 8px 10px;
+        width: 350px;
+        font-size: 14px;
+        margin: 15px 0px;
+        border: 2px solid rgb(170, 169, 169);
+        outline: none;
+      }
+      button {
+        width: 100%;
+        padding: 10px 10px;
+        border: none;
+        background-color: darkblue;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+
+        color: white;
+        font-weight: 500;
+        font-size: 18px;
+      }
+      p {
+        color: grey;
+        padding: 4px 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Get the Weekly updates.</h2>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+
+      <form action="/" method="POST">
+        <input type="text" name="firstName" placeholder="First Name" />
+        <input type="text" name="lastName" placeholder="Last Name" />
+        <input type="email" name="email" placeholder="Email address" />
+        <button type="submit">Subscribe Now</button>
+      </form>
+    </div>
+  </body>
+</html>
