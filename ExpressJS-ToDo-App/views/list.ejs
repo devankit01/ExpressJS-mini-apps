@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Todo App</title>
+    <style>
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="wrap">
+    <h1>Todo App</h1>
+    <span><%= day %></span>
+</div>
+    <ul>
+        
+      <%  for(var i=0; i<works.length; i++){ %>
+        
+        <li><p>   <%= works[i] %> </p><form action="/delete" method="POST"><button type="submit" name="<%= works[i] %>">Delete</button></form></li>
+       <% } %>
+
+    </ul>
+
+    <form action="/" method="POST">
+
+        <input type="text" name="addWork" required/>
+        <button type="submit" class="btn">Submit</button>
+    </form>
+</div>
+
+</body>
+</html>
