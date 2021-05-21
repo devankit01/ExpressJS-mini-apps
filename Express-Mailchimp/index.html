@@ -41,7 +41,7 @@
         border: none;
         background-color: darkblue;
         box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
-
+        cursor: pointer;
         color: white;
         font-weight: 500;
         font-size: 18px;
@@ -58,9 +58,9 @@
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
 
       <form action="/" method="POST">
-        <input type="text" name="firstName" placeholder="First Name" />
-        <input type="text" name="lastName" placeholder="Last Name" />
-        <input type="email" name="email" placeholder="Email address" />
+        <input type="text" name="firstName" placeholder="First Name" required />
+        <input type="text" name="lastName" placeholder="Last Name"  required/>
+        <input type="email" name="email" placeholder="Email address" required />
         <button type="submit">Subscribe Now</button>
       </form>
     </div>
