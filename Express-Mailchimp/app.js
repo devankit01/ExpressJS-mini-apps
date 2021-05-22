@@ -2,7 +2,7 @@ const express = require("express");
 const https = require("https");
 const bodyParser = require("body-parser");
 const Mailchimp = require("mailchimp-api-v3");
-const mailchimp = new Mailchimp("840cea6730713c2e6d8bab4bb2849489-us6"); // API-Key
+const mailchimp = new Mailchimp("xxxxxxxxxxxxxxxxxxxxxxxxxxxxx-us6"); // API-Key
 
 
 
@@ -16,7 +16,7 @@ app.get("/", (req, res) => {
 
 app.post("/", (req, res) => {
   mailchimp
-    .post("/lists/71aec5dd6a/members", { // Include Your id
+    .post("/lists/xxxxxxxxxxx/members", { // Include Your id
       email_address: req.body.email,
       merge_fields: {
         FNAME: req.body.firstName,
