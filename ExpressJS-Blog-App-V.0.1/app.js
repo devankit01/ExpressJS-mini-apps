@@ -1,7 +1,8 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const path = require("path");
-const PORT = process.env.PORT || 3000 ;
+const _ = require("lodash");
+const PORT = process.env.PORT || 3000;
 
 // Initialise app
 const app = express();
@@ -17,40 +18,56 @@ app.set("views", path.join(__dirname, "views"));
 app.use(express.static("public"));
 app.use(express.json());
 
-
-
 var posts = [];
 
-
 // Routes
-app.get('/', (req,res) => {
-    
-    res.render('Home',{'posts' : posts})
-})
+app.get("/", (req, res) => {
+  res.render("Home", { posts: posts });
+});
 
-app.get('/about', (req,res) => {
-    res.render('About')
-})
+app.get("/about", (req, res) => {
+  res.render("About");
+});
 
-app.get('/contact', (req,res) => {
-    res.render('Contact')
-})
+app.get("/contact", (req, res) => {
+  res.render("Contact");
+});
+
+app.get("/compose", (req, res) => {
+    res.render("Compose");
+  });
+
+ 
 
 
-app.get('/compose', (req,res) => {
-    res.render('Compose')
-})
+app.post("/compose", (req, res) => {
+  const postBody = {
+    title: req.body.title,
+    body: req.body.post,
+  };
+  posts.push(postBody);
+  // console.log(postBody)
+  res.redirect("/");
+});
 
+app.get("/post/:title", (req, res) => {
+  console.log(req.params.title);
 
-app.post('/compose', (req,res) => {
+  posts.forEach((post) => {
+    let title = _.lowerCase(post.title);
+    let requested = _.lowerCase(req.params.title);
 
-    const postBody = {
-        'title' : req.body.title,
-        'body' : req.body.post
+    if (title === requested) {
+      console.log("Match");
+      console.log(post.title, post.body);
+      res.render("Post", {
+        posttitle: post.title,
+        postbody: post.body,
+      });
+    } else {
+      res.send("<h1>Not Found</h1>");
     }
-    posts.push(postBody)
-    console.log(postBody)
-    res.redirect('/')
-})
+  });
+});
 
-app.listen(PORT , (req, res) => console.log('Server Started'))
+app.listen(PORT, (req, res) => console.log("Server Started"));
