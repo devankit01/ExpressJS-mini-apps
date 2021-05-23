@@ -23,4 +23,24 @@ app.get('/', (req,res) => {
     res.render('Home')
 })
 
+app.get('/about', (req,res) => {
+    res.render('About')
+})
+
+app.get('/contact', (req,res) => {
+    res.render('Contact')
+})
+
+
+app.get('/compose', (req,res) => {
+    res.render('Compose')
+})
+
+
+app.post('/compose', (req,res) => {
+    console.log(req.body.title)
+    console.log(req.body.post)
+    res.render('Compose')
+})
+
 app.listen(PORT , (req, res) => console.log('Server Started'))
