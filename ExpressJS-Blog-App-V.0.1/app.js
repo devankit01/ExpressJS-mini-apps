@@ -18,9 +18,14 @@ app.use(express.static("public"));
 app.use(express.json());
 
 
+
+var posts = [];
+
+
 // Routes
 app.get('/', (req,res) => {
-    res.render('Home')
+    
+    res.render('Home',{'posts' : posts})
 })
 
 app.get('/about', (req,res) => {
@@ -38,9 +43,14 @@ app.get('/compose', (req,res) => {
 
 
 app.post('/compose', (req,res) => {
-    console.log(req.body.title)
-    console.log(req.body.post)
-    res.render('Compose')
+
+    const postBody = {
+        'title' : req.body.title,
+        'body' : req.body.post
+    }
+    posts.push(postBody)
+    console.log(postBody)
+    res.redirect('/')
 })
 
 app.listen(PORT , (req, res) => console.log('Server Started'))

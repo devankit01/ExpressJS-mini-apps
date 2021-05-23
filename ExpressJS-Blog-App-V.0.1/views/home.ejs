@@ -1,5 +1,29 @@
 <%- include("partials/header") %>
 <h1>Home</h1>
 
+<% for (var i=0; i<posts.length; i++) { %>
+    <div class="post">
+   <h3> <%= posts[i].title %></h3>
+ <p>  <%= posts[i].body %></p> 
+
+</div>
+    <%  }; %>
+
+    
+
+<!-- Mapping Method -->
+    
+<!-- <% posts.forEach((post) => { %>
+
+    <div class="post">
+        <h3> <%= post.title %></h3>
+      <p>  <%= post.body %></p> 
+      
+</div>
+
+ <% });  %> -->
+   
+
+
 
 <%- include("partials/footer") %>

@@ -75,3 +75,9 @@ form input, form textarea, form button{
     display: block;
 
 }
+.post{
+    margin: 25px 0px;
+    padding: 5px 10px;
+
+    box-shadow: 3px 3px 6px rgba(0,0,0,0.1);
+}
