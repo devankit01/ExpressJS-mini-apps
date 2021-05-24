@@ -1,29 +1,19 @@
-<%- include("partials/header") %>
-<h1>Home</h1>
 
-<% for (var i=0; i<posts.length; i++) { %>
-    <div class="post">
-   <h3> <%= posts[i].title %></h3>
- <p>  <%= posts[i].body.substring(0,300) + " ..." %> <a href="/post/<%=  posts[i].title %>"  >Read More</a></p> 
-
-</div>
-    <%  }; %>
-
-    
-
-<!-- Mapping Method -->
-    
-<!-- <% posts.forEach((post) => { %>
-
-    <div class="post">
-        <h3> <%= post.title %></h3>
-      <p>  <%= post.body %></p> 
-      
-</div>
-
- <% });  %> -->
-   
+<%- include("partials/header"); -%>
+    <h1>Home</h1>
+    <p> <%= startingContent %> </p>
 
 
+  <%  posts.forEach(function(post){ %>
 
-<%- include("partials/footer") %>
+    <h1><%=post.title%></h1>
+    <p>
+    <%=post.content.substring(0, 100) + " ..."%>
+    <a href="/posts/<%=post.title%>">Read More</a>
+    </p>
+
+
+    <% }) %>
+
+
+<%- include("partials/footer"); -%>
